@@ -1,0 +1,7 @@
+pytest - Запуск всех тестов
+pytest tests/test_example.py - Запуск конкретного тестового файла
+pytest -v - Запуск с подробным выводом (verbose)
+pytest --html=report.html - Запуск с генерацией HTML-отчета
+pytest --headless - Запуск тестов без открытия браузера
+pytest --cache-clear - Очистка кэша перед запуском тестов
+pytest tests/test_bulk_edit.py -v --html=report.html - Запуск конкретного тестового файла с отчетом HTML

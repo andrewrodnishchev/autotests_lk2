@@ -1,0 +1,15 @@
+class DeviceLocators:
+    MY_ASSISTANT_MENU = "text=Мой ассистент"
+    DEVICES_MENU = "text=Устройства"
+    ADD_DEVICE_BUTTON = "text=Добавить устройство"
+    DEVICE_ID_INPUT = "#HID"
+    SAVE_DEVICE_BUTTON = "button:has-text('Сохранить')"
+    SUCCESS_ADD_MSG = "text=Устройство успешно добавлено"
+    BURGER_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div/div/div/div[2]/div[2]/table/tbody/tr[3]/td[5]/div/div/i"
+    EDIT_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div/div/div/div[2]/div[2]/table/tbody/tr[3]/td[5]/div/ul/li[1]/a"
+    COMMENT_INPUT = "#Description"
+    SUCCESS_SAVE_MSG = "#toast-container > div > div > div"
+    DELETE_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div/div/div/div[2]/div[2]/table/tbody/tr[3]/td[5]/div/ul/li[2]/a"
+    CONFIRM_DELETE_BUTTON = "button:has-text('Удалить')"
+    SUCCESS_DELETE_MSG = "text=Устройство удалено"
+
