@@ -5,3 +5,9 @@ pytest --html=report.html - Запуск с генерацией HTML-отчет
 pytest --headless - Запуск тестов без открытия браузера
 pytest --cache-clear - Очистка кэша перед запуском тестов
 pytest tests/test_bulk_edit.py -v --html=report.html - Запуск конкретного тестового файла с отчетом HTML
+
+Обновление репозитория после изменений:
+git add .
+git commit -m "Update: add new tests"
+git push
+
