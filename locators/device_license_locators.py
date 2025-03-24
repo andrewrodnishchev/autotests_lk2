@@ -1,0 +1,10 @@
+class DeviceLicenseLocators:
+    ADMINISTRATION_TAB = "text=Администрирование"
+    DEVICES_MENU = "xpath=/html/body/div[1]/nav/div/ul/li[5]/ul/li[1]/a"
+    SEARCH_INPUT = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div/label/input"
+    CHECKBOX = "xpath=//tr[contains(normalize-space(), '135 026 892')]//input[@type='checkbox']"
+    ACTIVATE_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[1]/button[3]/i"
+    LICENSE_DROPDOWN = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[1]/div[1]/div/div/p/span"
+    LICENSE_OPTION = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[1]/div[1]/div/div/div/ul/li[6]/label"
+    CONFIRM_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[2]/button[1]"
+    SUCCESS_MESSAGE = "text=Лицензия успешно активирована на выбранных устройствах (1 шт.)"

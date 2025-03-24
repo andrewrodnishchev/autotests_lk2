@@ -1,0 +1,12 @@
+class CategoryLocators:
+    ADMINISTRATION_TAB = "text=Администрирование"
+    CATEGORIES_MENU = "text=Категории заявок"
+    CREATE_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div/div[1]/a[1]"
+    NAME_INPUT = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/form/div[1]/div/div/div/div/input"
+    SAVE_BUTTON = "button:has-text('Сохранить')"
+    SUCCESS_MODAL = "xpath=/html/body/div[4]/div/div/div"
+    BURGER_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div/div[2]/table/tbody/tr[2]/td[3]/div/div/i"
+    EDIT_OPTION = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div/div[2]/table/tbody/tr[2]/td[3]/div/ul/li[1]/a"
+    DELETE_OPTION = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div/div[2]/table/tbody/tr[2]/td[3]/div/ul/li[2]/a"
+    CONFIRM_DELETE_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[2]/button[1]"
+    DELETE_SUCCESS_MESSAGE = "xpath=/html/body/div[4]/div/div/div"

@@ -25,22 +25,31 @@ class PasswordRecoveryPage:
 
     # Получаем оригинальное изображение
         captcha_element = self.page.locator(PasswordRecoveryLocators.CAPTCHA_IMAGE)
-        captcha_element.screenshot(path="original_captcha.png")
+        screenshot_bytes = captcha_element.screenshot()
 
-    # Минимальная обработка
-        image = Image.open("original_captcha.png")
+    # Увеличение размера и улучшение качества
+        with Image.open(io.BytesIO(screenshot_bytes)) as image:
+        # Увеличиваем размер в 2 раза с интерполяцией LANCZOS
+            original_width, original_height = image.size
+            enlarged_image = image.resize(
+            (original_width * 1, original_height * 3),
+                resample=Image.Resampling.BICUBIC
+            )
 
-    # Только конвертация в ч/б и легкая бинаризация
-        image = image.convert("L")
-        image = image.point(lambda x: 0 if x < 200 else 255)  # Увеличиваем порог
+        # Легкое шумоподавление
+            enlarged_image = enlarged_image.filter(ImageFilter.SMOOTH)
 
-    # Сохраняем для проверки
-        image.save("processed_captcha_light.png")
+        # Сохраняем для проверки
+            enlarged_image.save("enlarged_captcha.png")
 
-    # Конфигурация Tesseract
-        custom_config = r'--oem 3 --psm 7 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    # Конфигурация Tesseract для цифр
+        custom_config = [
+            r'--oem 3 --psm 8 -c tessedit_char_whitelist=0123456789',  # Варианты конфигураций
+            r'--oem 3 --psm 7 -c tessedit_char_whitelist=0123456789',
+            r'--oem 3 --psm 13 -c tessedit_char_whitelist=0123456789'
+        ]
 
-        return pytesseract.image_to_string(image, config=custom_config).strip()
+        return pytesseract.image_to_string(enlarged_image, config=custom_config).strip()
 
     def submit_recovery_form(self, captcha_text: str):
         print("Ввод капчи и отправка формы")

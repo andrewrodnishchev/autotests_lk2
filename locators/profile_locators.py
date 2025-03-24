@@ -1,0 +1,7 @@
+class ProfileLicenseLocators:
+    USER_MENU = "xpath=//span[contains(text(), 'Андрей Роднищев')]"
+    PROFILE_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[1]/div/nav/ul/li/div/div[2]/a[1]"
+    ACTIVATE_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div/div[4]/div/a"
+    LICENSE_INPUT = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[1]/input"
+    SUBMIT_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[2]/button[1]"
+    SUCCESS_MODAL = "xpath=/html/body/div[4]/div/div/div"

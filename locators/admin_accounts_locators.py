@@ -1,0 +1,11 @@
+class AdminAccountsLocators:
+    ADMINISTRATION_TAB = "text=Администрирование"
+    ACCOUNTS_MENU = "xpath=/html/body/div[1]/nav/div/ul/li[5]/ul/li[6]/a"
+    SEARCH_INPUT = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div/label/input"
+    CHECKBOX = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr/td[1]/input"
+    ADD_TO_ORG_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/div/div[1]/button[1]/i"
+    ORG_DROPDOWN = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[1]/div/select"
+    ORG_OPTION = "option:has-text('тест андрей')"
+    TOGGLE_CHECKBOX = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[2]/div[2]/div/div/div/ins"
+    EXECUTE_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[3]/button[1]"
+    ERROR_MESSAGE = "text=Учетная запись andrey@mailforspam.com уже состоит в организации тест андрей"
