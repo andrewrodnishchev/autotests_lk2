@@ -1,0 +1,11 @@
+class IPAImportLocators:
+    ANDREY_TEST_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[2]/a/h2"
+    DEVICES_MENU_ITEM = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/ul/li[2]/a"
+    IMPORT_FROM_AD_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[1]/div/a[2]/i"
+    DOMAIN_DROPDOWN = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[1]/div[1]/div/select"
+    IPA_OPTION = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[1]/div[1]/div/select/option[2]"
+    DOMAIN_INPUT = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[1]/div[2]/div/input"
+    USERNAME_INPUT = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[1]/div[3]/div/input"
+    PASSWORD_INPUT = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[1]/div[4]/div/input"
+    GET_DEVICES_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[2]/button[1]"
+    RESULT_ENTRY = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/div[2]/div/div/div[2]/div[2]/table/tbody/tr[1]/td[2]/span/span[2]"

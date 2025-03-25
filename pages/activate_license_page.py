@@ -1,25 +1,24 @@
 # pages/activate_license_page.py
 
+import config
 from playwright.sync_api import Page, expect
 from locators.license_page_locators import LicensePageLocators
-from config.config import DEFAULT_TIMEOUT
+
 
 class LicensePage:
     def __init__(self, page: Page):
         self.page = page
+        self.urls = config.get_stand_urls(config.SELECTED_STAND)
 
-    def navigate_to_employee_section(self):
-        # Выбираем организацию
-        self.page.click(LicensePageLocators.ORGANIZATION_MENU)
+    def navigate_to_organization_devices(self):
+        self.page.goto(f"{self.urls['dashboard_url']}/devices")
         self.page.wait_for_load_state("networkidle")
 
-        # Переходим в раздел сотрудников
-        self.page.click(LicensePageLocators.EMPLOYEE_SECTION)
-        self.page.wait_for_load_state("networkidle")
+    # Остальные методы остаются без изменений, но должны использовать self.urls
 
     def select_employee(self):
         checkbox = self.page.locator(LicensePageLocators.CHECKBOX)
-        checkbox.wait_for(state="visible", timeout=DEFAULT_TIMEOUT)  # Явное ожидание
+        checkbox.wait_for(state="visible", timeout=config.DEFAULT_TIMEOUT)  # Явное ожидание
         checkbox.check()
 
     def open_edit_menu(self):
@@ -27,7 +26,7 @@ class LicensePage:
         self.page.wait_for_selector(
             LicensePageLocators.LICENSE_DROPDOWN,
             state="visible",
-            timeout=DEFAULT_TIMEOUT
+            timeout=config.DEFAULT_TIMEOUT
         )
 
     def select_license(self):
@@ -44,5 +43,5 @@ class LicensePage:
 
     def verify_success(self):
         expect(self.page.locator(LicensePageLocators.SUCCESS_MESSAGE)).to_be_visible(
-            timeout=DEFAULT_TIMEOUT * 2  # Увеличиваем таймаут для сообщения
+            timeout=config.DEFAULT_TIMEOUT * 2  # Увеличиваем таймаут для сообщения
         )

@@ -1,14 +1,15 @@
-import time
-
 from playwright.sync_api import Page, expect
 from locators.admin_page_locators import AdminPageLocators
-from config.config import DEFAULT_TIMEOUT
+import config
+
 
 class AdminPage:
     def __init__(self, page: Page):
         self.page = page
+        self.urls = config.get_stand_urls(config.SELECTED_STAND)
 
     def navigate_to_administration(self):
+        self.page.goto(self.urls["dashboard_url"])
         self.page.click(AdminPageLocators.ADMINISTRATION_TAB)
         self.page.wait_for_load_state("networkidle")
 
@@ -17,13 +18,10 @@ class AdminPage:
         self.page.wait_for_load_state("networkidle")
 
     def search_user(self, email: str):
-        # Вводим email и нажимаем Enter
         search_input = self.page.locator(AdminPageLocators.SEARCH_INPUT)
         search_input.fill(email)
         search_input.press("Enter")
-        self.page.wait_for_load_state("networkidle")  # Ожидание завершения поиска
-
-        time.sleep(3)
+        self.page.wait_for_load_state("networkidle")
 
     def open_edit_menu(self):
         self.page.click(AdminPageLocators.BURGER_BUTTON)
@@ -39,5 +37,5 @@ class AdminPage:
 
     def verify_success(self):
         expect(self.page.locator(AdminPageLocators.SUCCESS_MESSAGE)).to_be_visible(
-            timeout=DEFAULT_TIMEOUT
+            timeout=config.DEFAULT_TIMEOUT
         )

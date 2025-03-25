@@ -1,12 +1,40 @@
+# conftest.py
 import pytest
 from playwright.sync_api import sync_playwright
+import config  # Убедитесь, что файл называется config.py и находится в корне проекта
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--stand",
+        action="store",
+        default=config.SELECTED_STAND,  # Теперь атрибут существует
+        help=f"Set test stand: {', '.join(config.STANDS.keys())}"
+    )
+
+
+@pytest.fixture(scope="session")
+def stand(request):
+    return request.config.getoption("--stand")
+
+
+@pytest.fixture(scope="session", autouse=True)
+def setup_stand(stand):
+    if stand not in config.STANDS:
+        raise ValueError(f"Invalid stand: {stand}")
+    config.SELECTED_STAND = stand
+
 
 @pytest.fixture(scope="session")
 def browser():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False, args=["--start-maximized"])
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            headless=False,
+            args=["--start-maximized"]
+        )
         yield browser
         browser.close()
+
 
 @pytest.fixture
 def page(browser):
@@ -15,8 +43,8 @@ def page(browser):
     yield page
     page.close()
 
+
 @pytest.fixture(autouse=True)
 def close_modals(page):
     yield
-    # Закрываем все модальные окна после теста
     page.evaluate("document.querySelectorAll('.modal').forEach(m => m.remove())")

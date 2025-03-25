@@ -2,12 +2,16 @@
 
 from playwright.sync_api import Page, expect
 from locators.license_locators import LicenseLocators
+import config
+
 
 class LicensePage:
     def __init__(self, page: Page):
         self.page = page
+        self.urls = config.get_stand_urls(config.SELECTED_STAND)
 
     def navigate_to_organization_devices(self):
+        self.page.goto(self.urls["dashboard_url"])
         print("Переход в организацию 'Тест Андрей'")
         self.page.click(LicenseLocators.ORGANIZATION_MENU)
         print("Переход в раздел 'Устройства'")
@@ -22,10 +26,8 @@ class LicensePage:
     def activate_license(self):
         print("Нажатие на кнопку 'Активировать лицензию'")
         self.page.click(LicenseLocators.ACTIVATE_LICENSE_BUTTON)
-
         print("Открытие выпадающего списка лицензий")
         self.page.click(LicenseLocators.LICENSE_DROPDOWN)
-
         print("Выбор лицензии 'тест андрей CB71353D-...'")
         license_option = self.page.locator(LicenseLocators.LICENSE_OPTION)
         license_option.wait_for(state="visible", timeout=10000)

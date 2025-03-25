@@ -2,12 +2,16 @@
 
 from playwright.sync_api import Page, expect
 from locators.bulk_edit_locators import BulkEditLocators
+import config
+
 
 class BulkEditPage:
     def __init__(self, page: Page):
         self.page = page
+        self.urls = config.get_stand_urls(config.SELECTED_STAND)
 
     def navigate_to_organization_devices(self):
+        self.page.goto(self.urls["dashboard_url"])
         print("Переход в организацию 'Тест Андрей'")
         self.page.click(BulkEditLocators.ORGANIZATION_MENU)
         print("Переход в раздел 'Устройства'")
@@ -33,7 +37,7 @@ class BulkEditPage:
     def execute_changes(self):
         print("Нажатие на кнопку 'Выполнить'")
         self.page.click(BulkEditLocators.EXECUTE_BUTTON)
-        self.page.wait_for_timeout(3000)  # Ожидание загрузки параметров
+        self.page.wait_for_timeout(3000)
 
     def should_see_success_message(self):
         print("Проверка уведомления об успешном изменении")

@@ -1,13 +1,15 @@
-import time
-
 from playwright.sync_api import Page, expect
 from locators.device_locators import DeviceLocators
+import config
+
 
 class DevicesPage:
     def __init__(self, page: Page):
         self.page = page
+        self.urls = config.get_stand_urls(config.SELECTED_STAND)
 
     def navigate_to_devices(self):
+        self.page.goto(self.urls["dashboard_url"])
         print("Переход в раздел 'Мой ассистент'")
         self.page.click(DeviceLocators.MY_ASSISTANT_MENU)
         print("Переход в раздел 'Устройства'")
@@ -22,7 +24,6 @@ class DevicesPage:
         self.page.click(DeviceLocators.SAVE_DEVICE_BUTTON)
         self.page.click(DeviceLocators.SAVE_DEVICE_BUTTON)
 
-
     def edit_device_comment(self, comment: str):
         print("Поиск кнопки бургера для устройства")
         burger_button = self.page.locator(DeviceLocators.BURGER_BUTTON)
@@ -32,14 +33,8 @@ class DevicesPage:
 
         print("Нажатие на кнопку 'Изменить'")
         self.page.click(DeviceLocators.EDIT_BUTTON)
-
-        print("Ожидание завершения AJAX-запросов...")
         self.page.wait_for_load_state("networkidle")
-        print("AJAX-запросы завершены")
-
-        print("Ожидание исчезновения блокировщика...")
         self.page.wait_for_selector("div.layout-ajax-locker", state="hidden", timeout=10000)
-        print("Блокировщик исчез")
 
         print(f"Ввод комментария: {comment}")
         self.page.fill(DeviceLocators.COMMENT_INPUT, comment)
@@ -50,8 +45,8 @@ class DevicesPage:
         print("Кнопка 'Сохранить' найдена")
 
         print("Нажатие на кнопку 'Сохранить'")
-        save_button.click(timeout=60000)  # Увеличьте таймаут
-        self.page.screenshot(path="after_saving_device.png")  # Скриншот для отладки
+        save_button.click(timeout=60000)
+        self.page.screenshot(path="after_saving_device.png")
 
     def delete_device(self):
         print("Поиск кнопки бургера для устройства")
@@ -66,7 +61,7 @@ class DevicesPage:
 
     def should_see_success_add_message(self):
         success_msg = self.page.locator(DeviceLocators.SUCCESS_ADD_MSG)
-        expect(success_msg).to_be_visible()  # Проверка, что модальное окно видимо
+        expect(success_msg).to_be_visible()
 
     def should_see_success_save_message(self):
         expect(self.page.locator(DeviceLocators.SUCCESS_SAVE_MSG)).to_be_visible()

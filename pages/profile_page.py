@@ -1,15 +1,19 @@
 from playwright.sync_api import Page, expect
 from locators.auth_page_locators import ProfilePageLocators
+import config
+
 
 class ProfilePage:
     def __init__(self, page: Page):
         self.page = page
+        self.urls = config.get_stand_urls(config.SELECTED_STAND)
 
     def open_profile_menu(self):
+        self.page.goto(self.urls["dashboard_url"])
         self.page.click(ProfilePageLocators.USER_MENU)
 
     def navigate_to_profile(self):
-        self.page.wait_for_selector(ProfilePageLocators.PROFILE_BUTTON, state="visible", timeout=5000)  # Ждем 5 секунд
+        self.page.wait_for_selector(ProfilePageLocators.PROFILE_BUTTON, state="visible", timeout=5000)
         self.page.click(ProfilePageLocators.PROFILE_BUTTON)
 
     def open_security_tab(self):
