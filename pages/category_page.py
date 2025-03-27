@@ -1,5 +1,5 @@
 # pages/category_page.py
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 from locators.category_locators import CategoryLocators
 import config
 

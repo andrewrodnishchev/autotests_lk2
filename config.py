@@ -6,7 +6,7 @@ STANDS = {
         "login_path": "/Account/Login",
         "dashboard_path": "/ClientOrg"
     },
-    "dev": {
+    "corp": {
         "base_url": "http://lk.corp.dev.ru",
         "login_path": "/Account/Login",
         "dashboard_path": "/ClientOrg"
@@ -14,7 +14,7 @@ STANDS = {
 }
 
 # Добавляем недостающий атрибут
-SELECTED_STAND = "dev"  # Значение по умолчанию
+SELECTED_STAND = "corp"  # Значение по умолчанию
 
 
 def get_stand_urls(stand: str) -> dict:

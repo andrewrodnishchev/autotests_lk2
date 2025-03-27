@@ -1,6 +1,7 @@
 from playwright.sync_api import Page
 from locators.import_ou_locators import ImportOULocators
-from config.config import DEFAULT_TIMEOUT
+from config import DEFAULT_TIMEOUT
+
 
 class ImportOUPage:
     def __init__(self, page: Page):
@@ -18,7 +19,7 @@ class ImportOUPage:
         self.page.wait_for_selector(
             ImportOULocators.SERVER_INPUT,
             state="visible",
-            timeout=DEFAULT_TIMEOUT*2
+            timeout=DEFAULT_TIMEOUT * 2
         )
 
     def fill_connection_details(self):
@@ -34,7 +35,7 @@ class ImportOUPage:
         self.page.wait_for_selector(
             ImportOULocators.SEARCH_INPUT,
             state="visible",
-            timeout=DEFAULT_TIMEOUT*3
+            timeout=DEFAULT_TIMEOUT * 3
         )
         self.page.fill(ImportOULocators.SEARCH_INPUT, "238 811 384")
         self.page.keyboard.press('Enter')
@@ -42,8 +43,9 @@ class ImportOUPage:
         self.page.wait_for_selector(
             ImportOULocators.DEVICE_CHECKBOX,
             state="visible",
-            timeout=DEFAULT_TIMEOUT*3
+            timeout=DEFAULT_TIMEOUT * 3
         )
+
     def perform_import(self):
         """Выполнение импорта"""
         self.page.click(ImportOULocators.IMPORT_BUTTON)
@@ -51,7 +53,7 @@ class ImportOUPage:
         self.page.wait_for_selector(
             ImportOULocators.RESULT_MODAL,
             state="visible",
-            timeout=DEFAULT_TIMEOUT*3
+            timeout=DEFAULT_TIMEOUT * 3
         )
 
     def verify_success(self):

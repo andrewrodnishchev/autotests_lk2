@@ -1,6 +1,5 @@
 # tests/test_password_recovery.py
 
-import pytest
 from pages.auth_page import AuthPage
 from pages.password_recovery_page import PasswordRecoveryPage
 import config

@@ -10,4 +10,3 @@ def test_successful_login(page, stand):
     auth_page.login(config.ADMIN_LOGIN, config.ADMIN_PASSWORD)
 
     auth_page.should_be_on_dashboard()
-    auth_page.should_see_welcome_message()

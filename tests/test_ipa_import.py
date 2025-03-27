@@ -1,4 +1,3 @@
-import pytest
 from pages.auth_page import AuthPage
 from pages.import_ipa_page import IPAImportPage
 import config

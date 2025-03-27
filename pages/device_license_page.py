@@ -1,5 +1,3 @@
-import time
-
 from playwright.sync_api import Page, expect
 from locators.device_license_locators import DeviceLicenseLocators
 import config

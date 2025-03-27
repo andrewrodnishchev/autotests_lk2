@@ -1,4 +1,3 @@
-import pytest
 from pages.auth_page import AuthPage
 from pages.device_license_page import DeviceLicensePage
 import config

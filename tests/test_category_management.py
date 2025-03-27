@@ -1,4 +1,3 @@
-import pytest
 from pages.auth_page import AuthPage
 from pages.category_page import CategoryPage
 import config

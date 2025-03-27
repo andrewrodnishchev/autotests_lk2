@@ -1,4 +1,3 @@
-import pytest
 from pages.auth_page import AuthPage
 from pages.admin_accounts_page import AdminAccountsPage
 import config

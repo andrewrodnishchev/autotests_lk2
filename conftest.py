@@ -1,7 +1,7 @@
 # conftest.py
 import pytest
 from playwright.sync_api import sync_playwright
-import config  # Убедитесь, что файл называется config.py и находится в корне проекта
+import config
 
 
 def pytest_addoption(parser):

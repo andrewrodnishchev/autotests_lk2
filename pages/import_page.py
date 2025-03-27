@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 from locators.import_locators import ImportLocators
 import config
 

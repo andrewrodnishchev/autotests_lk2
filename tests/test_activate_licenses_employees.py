@@ -1,5 +1,4 @@
 # tests/test_activate_licenses.py
-import pytest
 from pages.auth_page import AuthPage
 from pages.activate_license_page import LicensePage
 import config
