@@ -1,3 +1,5 @@
+import time
+
 from playwright.sync_api import Page, expect
 from locators.admin_license_locators import AdminLicenseLocators
 import config

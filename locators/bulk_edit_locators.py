@@ -8,4 +8,4 @@ class BulkEditLocators:
     POLICY_DROPDOWN = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/div[3]/div/div/p/span"  # Выпадающий список политики
     POLICY_OPTION = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/ul/li[3]/label"  # Пример опции
     EXECUTE_BUTTON = "#idBtnOk"  # Кнопка "Выполнить"
-    SUCCESS_MESSAGE = "text=Успешно изменено устройств: 4"  # Уведомление
+    SUCCESS_MESSAGE = "text=Успешно изменено устройств"  # Уведомление

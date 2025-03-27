@@ -10,6 +10,13 @@ class LicensePage:
         self.page = page
         self.urls = config.get_stand_urls(config.SELECTED_STAND)
 
+    def navigate_to_employee_section(self):
+        # Выбираем организацию
+        self.page.click(LicensePageLocators.ORGANIZATION_MENU)
+        self.page.wait_for_load_state("networkidle")
+        self.page.click(LicensePageLocators.EMPLOYEE_SECTION)
+        self.page.wait_for_load_state("networkidle")
+
     def navigate_to_organization_devices(self):
         self.page.goto(f"{self.urls['dashboard_url']}/devices")
         self.page.wait_for_load_state("networkidle")
@@ -35,7 +42,7 @@ class LicensePage:
         self.page.select_option(LicensePageLocators.LICENSE_DROPDOWN, index=2)
 
         self.page.locator(LicensePageLocators.SECOND_DROPDOWN).wait_for(state="visible")
-        self.page.select_option(LicensePageLocators.SECOND_DROPDOWN, index=5)
+        self.page.select_option(LicensePageLocators.SECOND_DROPDOWN, index=2)
 
     def execute_changes(self):
         self.page.click(LicensePageLocators.EXECUTE_BUTTON)

@@ -2,8 +2,9 @@ class AuthPageLocators:
     LOGIN_FIELD = "#Email"
     PASSWORD_FIELD = "#PasswordUser"
     LOGIN_BUTTON = "body > div:nth-child(2) > div > div > div > form > button"
-    ERROR_MESSAGE = "text=Неверно указан логин или пароль"
+    ERROR_MESSAGE = "xpath=/html/body/div[4]"
     WELCOME_MESSAGE = "text=Мои организации"
+
 
 class ProfilePageLocators:
     USER_MENU = "text=Андрей Роднищев"

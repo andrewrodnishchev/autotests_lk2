@@ -5,6 +5,6 @@ class AdminLicenseLocators:
     CHECKBOX = "xpath=//tr[contains(., 'andrey@mailforspam.com')]//input[@type='checkbox']"
     ACTIVATE_LICENSE_BUTTON = "button:has-text('Активировать лицензию')"
     LICENSE_DROPDOWN = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[1]/div[1]/div/div/p"
-    LICENSE_OPTION = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[1]/div[1]/div/div/div/ul/li[6]/label"
+    LICENSE_OPTION = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[1]/div[1]/div/div/div/ul/li[2]"
     ACTIVATE_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[2]/button[1]"
     SUCCESS_MESSAGE = "xpath=/html/body/div[4]/div/div/div"

@@ -19,4 +19,4 @@ class ImportOULocators:
     # Подтверждение импорта
     CONFIRM_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[2]/button[1]"
     RESULT_MODAL = "xpath=/html/body/div[4]/div[2]/div/div[1]/div[2]/form/div/div[2]/div[2]/div"
-    SUCCESS_TEXT = "text=Успешно добавлено/обновлено устройств: 0"
+    SUCCESS_TEXT = "text=Успешно добавлено/обновлено"

@@ -26,7 +26,7 @@ class ImportOUPage:
         """Заполнение данных подключения"""
         self.page.fill(ImportOULocators.SERVER_INPUT, "dc01.test.local")
         self.page.fill(ImportOULocators.USERNAME_INPUT, "user1")
-        self.page.fill(ImportOULocators.PASSWORD_INPUT, "qwe")
+        self.page.fill(ImportOULocators.PASSWORD_INPUT, "123")
         self.page.fill(ImportOULocators.QUERY_INPUT, "OU=Тестовые компы,DC=test,DC=local")
 
     def search_and_select_device(self):

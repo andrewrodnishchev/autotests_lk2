@@ -1,4 +1,5 @@
 # pages/bulk_edit_page.py
+import time
 
 from playwright.sync_api import Page, expect
 from locators.bulk_edit_locators import BulkEditLocators
@@ -19,13 +20,17 @@ class BulkEditPage:
 
     def select_device_checkbox(self):
         print("Выбор чекбокса устройства")
-        checkbox = self.page.locator(BulkEditLocators.DEVICE_CHECKBOX).first
+        checkbox = self.page.locator(BulkEditLocators.DEVICE_CHECKBOX)
         checkbox.wait_for(state="visible", timeout=10000)
         checkbox.click()
 
+        time.sleep(3)
+
     def open_edit_menu(self):
         print("Нажатие на кнопку 'Изменить'")
-        self.page.click(BulkEditLocators.EDIT_BUTTON)
+        edit = self.page.locator(BulkEditLocators.EDIT_BUTTON)
+        edit.wait_for(state="visible", timeout=10000)
+        edit.click()
 
     def select_inventory_policy(self):
         print("Выбор политики инвентаризации")

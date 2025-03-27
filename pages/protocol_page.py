@@ -19,6 +19,7 @@ class ProtocolPage:
         self.page.click(ProtocolLocators.BURGER_BUTTON)
         self.page.click(ProtocolLocators.OPEN_BUTTON)
         self.page.wait_for_load_state("networkidle")
+        self.page.click(ProtocolLocators.EVENTS_TAB)
 
     def download_archive(self, download_dir: str):
         self.page.context.set_default_timeout(config.DEFAULT_TIMEOUT * 3)

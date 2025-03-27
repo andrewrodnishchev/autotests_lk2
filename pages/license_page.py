@@ -28,7 +28,7 @@ class LicensePage:
         self.page.click(LicenseLocators.ACTIVATE_LICENSE_BUTTON)
         print("Открытие выпадающего списка лицензий")
         self.page.click(LicenseLocators.LICENSE_DROPDOWN)
-        print("Выбор лицензии 'тест андрей CB71353D-...'")
+        print("Выбор лицензии 'тест андрей ...'")
         license_option = self.page.locator(LicenseLocators.LICENSE_OPTION)
         license_option.wait_for(state="visible", timeout=10000)
         license_option.click()

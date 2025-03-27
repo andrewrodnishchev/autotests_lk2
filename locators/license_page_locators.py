@@ -12,5 +12,5 @@ class LicensePageLocators:
     ACTIVATE_OPTION = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/div[4]/div/div/select/option[3]"
     SECOND_DROPDOWN = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/div[5]/div/div/select"
     LICENSE_OPTION = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/div[5]/div/div/select/option[6]"
-    EXECUTE_BUTTON = "text=Выполнить"
+    EXECUTE_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/div[6]/button[1]"
     SUCCESS_MESSAGE = "text=Успешно изменено сотрудников: 1"

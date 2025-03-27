@@ -1,3 +1,5 @@
+import time
+
 from playwright.sync_api import Page, expect
 from locators.admin_page_locators import AdminPageLocators
 import config
@@ -22,6 +24,8 @@ class AdminPage:
         search_input.fill(email)
         search_input.press("Enter")
         self.page.wait_for_load_state("networkidle")
+
+        time.sleep(1)
 
     def open_edit_menu(self):
         self.page.click(AdminPageLocators.BURGER_BUTTON)

@@ -1,3 +1,5 @@
+import time
+
 from playwright.sync_api import Page, expect
 from locators.admin_accounts_locators import AdminAccountsLocators
 import config
@@ -23,6 +25,8 @@ class AdminAccountsPage:
             state="visible",
             timeout=config.DEFAULT_TIMEOUT * 2
         )
+
+        time.sleep(2)
 
     def select_user(self):
         checkbox = self.page.locator(AdminAccountsLocators.CHECKBOX)
