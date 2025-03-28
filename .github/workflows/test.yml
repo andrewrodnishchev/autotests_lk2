@@ -3,9 +3,9 @@ name: Run Tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master ]  # Изменено с main на master
   pull_request:
-    branches: [ master ]
+    branches: [ master ]  # Изменено с main на master
 
 jobs:
   test:
@@ -50,7 +50,7 @@ jobs:
           pytest tests/ --stand=corp -v --html=report.html
 
       - name: Upload test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-report
