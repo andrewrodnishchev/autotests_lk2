@@ -1,4 +1,5 @@
 # config.py
+import os
 
 STANDS = {
     "linux": {
@@ -31,11 +32,11 @@ def get_stand_urls(stand: str) -> dict:
 
 
 # Остальные настройки
-LOGIN = "rodnischev@safib.ru"
-CORRECT_PASSWORD = "1"
-ADMIN_LOGIN = "test@safib.ru"
-ADMIN_PASSWORD = "1"
-INCORRECT_PASSWORD = "2"
+LOGIN = os.getenv("LOGIN", "rodnischev@safib.ru")
+CORRECT_PASSWORD = os.getenv("CORRECT_PASSWORD", "1")
+ADMIN_LOGIN = os.getenv("ADMIN_LOGIN", "test@safib.ru")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "1")
+INCORRECT_PASSWORD = os.getenv("INCORRECT_PASSWORD", "2")
 DEFAULT_TIMEOUT = 10000
 LONG_TIMEOUT = 60000  # 60 секунд для критичных операций
 TESSERACT_PATH = r'C:\Program Files\Tesseract-OCR\tesseract.exe'

@@ -1,3 +1,4 @@
+# .github/workflows/test.yml (полная версия)
 name: Run Tests
 
 on:
@@ -19,14 +20,23 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/playwright
+          key: ${{ runner.os }}-deps-${{ hashFiles('requirements.txt') }}
+
+      - name: Install project dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest-playwright
-
-      - name: Install browsers
-        run: |
           playwright install --with-deps chromium
 
       - name: Run tests
@@ -35,10 +45,11 @@ jobs:
           CORRECT_PASSWORD: ${{ secrets.CORRECT_PASSWORD }}
           ADMIN_LOGIN: ${{ secrets.ADMIN_LOGIN }}
           ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          TESSERACT_PATH: "/usr/bin/tesseract"
         run: |
           pytest tests/ --stand=corp -v --html=report.html
 
-      - name: Upload report
+      - name: Upload test report
         uses: actions/upload-artifact@v3
         if: always()
         with:
