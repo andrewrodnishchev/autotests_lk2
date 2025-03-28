@@ -1,0 +1,48 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest-playwright
+
+      - name: Install browsers
+        run: |
+          playwright install --with-deps chromium
+
+      - name: Run tests
+        env:
+          LOGIN: ${{ secrets.LOGIN }}
+          CORRECT_PASSWORD: ${{ secrets.CORRECT_PASSWORD }}
+          ADMIN_LOGIN: ${{ secrets.ADMIN_LOGIN }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+        run: |
+          pytest tests/ --stand=corp -v --html=report.html
+
+      - name: Upload report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-report
+          path: |
+            report.html
+            screenshots/*
