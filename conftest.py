@@ -8,7 +8,7 @@ def pytest_addoption(parser):
     parser.addoption(
         "--stand",
         action="store",
-        default=config.SELECTED_STAND,  # Теперь атрибут существует
+        default=config.SELECTED_STAND,
         help=f"Set test stand: {', '.join(config.STANDS.keys())}"
     )
 
@@ -29,7 +29,7 @@ def setup_stand(stand):
 def browser():
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=True,
+            headless=False,  # True - для Git, False - локально
             args=["--start-maximized"]
         )
         yield browser
