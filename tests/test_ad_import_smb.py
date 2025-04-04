@@ -30,5 +30,4 @@ def test_ad_device_import(page, stand):
         import_page.verify_domain_present()
 
     except Exception as e:
-        page.screenshot(path=f"ad_import_error_{stand}.png")
         pytest.fail(f"Ошибка импорта устройств на стенде {stand}: {str(e)}")

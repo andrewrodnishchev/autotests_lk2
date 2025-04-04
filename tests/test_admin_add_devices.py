@@ -23,5 +23,4 @@ def test_admin_add_devices(page, stand):
         admin_page.verify_success()
 
     except Exception as e:
-        page.screenshot(path=f"admin_add_devices_error_{stand}.png")
         pytest.fail(f"Ошибка добавления устройств на стенде {stand}: {str(e)}")

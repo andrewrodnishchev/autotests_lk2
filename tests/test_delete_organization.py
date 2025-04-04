@@ -27,5 +27,4 @@ def test_delete_organization(page, stand):
         org_page.delete_organization()
 
     except Exception as e:
-        page.screenshot(path=f"delete_org_error_{stand}.png")
         pytest.fail(f"Ошибка удаления организации на стенде {stand}: {str(e)}")

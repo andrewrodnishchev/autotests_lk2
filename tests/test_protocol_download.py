@@ -26,5 +26,4 @@ def test_protocol_download(page, stand, download_dir):
         downloaded_file = protocol_page.download_archive(download_dir)
         assert os.path.exists(downloaded_file), f"Файл не скачан: {downloaded_file}"
     except Exception as e:
-        page.screenshot(path=f"download_error_{stand}.png")
         pytest.fail(f"Ошибка на стенде {stand}: {str(e)}")

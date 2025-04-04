@@ -14,7 +14,6 @@ class ChangeStatusPage:
             self.page.click(ChangeStatusLocators.ACCOUNTS_MENU_ITEM)
             time.sleep(3)
         except Exception as e:
-            self.page.screenshot(path="accounts_section_error.png")
             raise RuntimeError(f"Не удалось открыть раздел: {str(e)}")
 
     def select_accounts(self, emails: list):
@@ -41,7 +40,6 @@ class ChangeStatusPage:
                 print(f"Чекбокс для {email} успешно выбран")
 
         except Exception as e:
-            self.page.screenshot(path=f"checkbox_error_{email.replace('@', '_')}.png")
             raise RuntimeError(f"Ошибка выбора {email}: {str(e)}")
 
     def change_status_to_blocked(self, count: int):
@@ -68,7 +66,6 @@ class ChangeStatusPage:
             time.sleep(0.5)
 
         except Exception as e:
-            self.page.screenshot(path="status_change_error.png")
             raise RuntimeError(f"Ошибка изменения статуса: {str(e)}")
 
     def revert_status_changes(self, count: int):

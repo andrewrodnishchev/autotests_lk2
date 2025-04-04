@@ -22,5 +22,4 @@ def test_admin_delete_devices(page, stand):
         admin_page.verify_deletion_success()
 
     except Exception as e:
-        page.screenshot(path=f"admin_delete_error_{stand}.png")
         pytest.fail(f"Ошибка удаления устройства на стенде {stand}: {str(e)}")

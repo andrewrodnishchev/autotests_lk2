@@ -16,5 +16,5 @@ def test_add_device_to_organization(page, stand):
     auth_page.should_be_on_dashboard()
 
     org_devices_page.navigate_to_organization_devices()
-    org_devices_page.add_device("135026892")
+    org_devices_page.add_device("027478388")
     org_devices_page.should_see_success_add_message()

@@ -21,5 +21,4 @@ def test_ad_import_with_filter(page, stand):
         assert import_page.verify_result(), "Импорт не выполнен успешно"
 
     except Exception as e:
-        page.screenshot(path=f"import_error_{stand}.png")
         pytest.fail(f"Ошибка на стенде {stand}: {str(e)}")

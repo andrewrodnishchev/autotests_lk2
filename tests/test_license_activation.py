@@ -16,5 +16,4 @@ def test_license_activation(page, stand):
         license_page.open_license_activation()
         license_page.activate_license(test_license)  # Используем полученный ключ
     except Exception as e:
-        page.screenshot(path=f"license_activation_error_{stand}.png")
         pytest.fail(f"Ошибка активации лицензии на стенде {stand}: {str(e)}")

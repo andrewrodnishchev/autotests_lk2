@@ -39,3 +39,14 @@ class AuthPage:
         expect(self.page).to_have_url(self.login_url)
         # Дополнительная проверка, что кнопка входа все еще видна
         expect(self.page.locator(AuthPageLocators.LOGIN_BUTTON)).to_be_visible()
+
+    # В auth_page.py можно добавить метод для получения токена
+    def get_auth_token(self, username: str, password: str) -> str:
+        self.page.on("request", lambda request: print(request.url, request.method))
+        self.page.on("response", lambda response: print(response.url, response.status))
+
+        self.login(username, password)
+
+        # Или ищем конкретный запрос авторизации
+        api_responses = []
+    # В auth_page.py можно добавить метод для получения токена

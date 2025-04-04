@@ -13,7 +13,22 @@ STANDS = {
         "login_path": "/Account/Login",
         "dashboard_path": "/ClientOrg",
         "license_key": "CB71353D-619BEC40-8076D68A-FF302886"
+    },
+
+    "win": {
+        "base_url": "http://lk.win.safib.ru",
+        "login_path": "/Account/Login",
+        "dashboard_path": "/ClientOrg",
+        "license_key": "9DE121FD-9697B746-AA7E1984-48BF1C4A"
+    },
+
+    "setup": {
+        "base_url": "http://office.setup_lk.ru/Account/Login?returnUrl=%2F",
+        "login_path": "/Account/Login",
+        "dashboard_path": "/ClientOrg",
+        "license_key": ""
     }
+
 }
 
 

@@ -19,7 +19,6 @@ class EmployeeManagementPage:
             ).click()
             self.page.wait_for_load_state("networkidle")
         except Exception as e:
-            self.page.screenshot(path="debug_org_nav_error.png")
             raise
 
     def open_employees_section(self):
@@ -35,7 +34,6 @@ class EmployeeManagementPage:
                 timeout=config.DEFAULT_TIMEOUT * 3
             )
         except Exception as e:
-            self.page.screenshot(path="debug_employees_section_error.png")
             raise
 
     def add_new_employee(self, email: str):
@@ -60,7 +58,6 @@ class EmployeeManagementPage:
             time.sleep(1)  # Небольшая пауза
 
         except Exception as e:
-            self.page.screenshot(path="debug_add_employee_error.png")
             raise
 
     def verify_add_success(self):
@@ -77,7 +74,6 @@ class EmployeeManagementPage:
             time.sleep(1)  # Пауза для визуальной проверки
 
         except Exception as e:
-            self.page.screenshot(path="debug_add_success_error.png")
             raise
 
     def search_and_delete_employee(self, email: str):
@@ -107,7 +103,6 @@ class EmployeeManagementPage:
             self.page.wait_for_load_state("networkidle")
 
         except Exception as e:
-            self.page.screenshot(path="debug_delete_error.png")
             raise
 
     def verify_delete_success(self):
@@ -119,5 +114,4 @@ class EmployeeManagementPage:
                 expect(notification).to_contain_text("Приглашение успешно удалено")
 
         except Exception as e:
-            self.page.screenshot(path="debug_delete_success_error.png")
             raise

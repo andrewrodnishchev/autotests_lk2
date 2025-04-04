@@ -18,5 +18,4 @@ def test_ou_import(page, stand):
         import_page.perform_import()
         assert import_page.verify_success(), "Импорт OU не выполнен успешно"
     except Exception as e:
-        page.screenshot(path=f"ou_import_error_{stand}.png")
         pytest.fail(f"Ошибка на стенде {stand}: {str(e)}")

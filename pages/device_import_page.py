@@ -64,7 +64,6 @@ class DeviceImportPage:
             self.page.wait_for_timeout(1000)
 
         except Exception as e:
-            self.page.screenshot(path="filter_error_debug.png")
             raise
 
     def verify_domain_present(self):

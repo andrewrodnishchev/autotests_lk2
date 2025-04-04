@@ -46,7 +46,6 @@ class DevicesPage:
 
         print("Нажатие на кнопку 'Сохранить'")
         save_button.click(timeout=60000)
-        self.page.screenshot(path="after_saving_device.png")
 
     def delete_device(self):
         print("Поиск кнопки бургера для устройства")

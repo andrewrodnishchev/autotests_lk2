@@ -34,5 +34,4 @@ def test_employee_management(page, stand):
         employee_page.verify_delete_success()
 
     except Exception as e:
-        page.screenshot(path=f"screenshots/employee_management_error_{stand}.png")
         pytest.fail(f"Ошибка управления сотрудниками на стенде {stand}: {str(e)}")
