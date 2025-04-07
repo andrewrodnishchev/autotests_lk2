@@ -1,4 +1,5 @@
 # pages/message_page.py
+import time
 
 from playwright.sync_api import Page, expect
 from locators.message_locators import MessageLocators
@@ -17,6 +18,7 @@ class MessagePage:
         self.page.click(MessageLocators.ORGANIZATION_MENU)
         print("Переход в раздел 'Устройства'")
         self.page.click(MessageLocators.DEVICES_MENU)
+        time.sleep(1)
 
     def select_checkboxes(self):
         print("Выбор общего чекбокса")

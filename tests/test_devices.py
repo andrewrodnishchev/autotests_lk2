@@ -10,11 +10,11 @@ def test_device_workflow(page, stand):
     devices_page = DevicesPage(page)
 
     auth_page.navigate_to_login_page()
-    auth_page.login(config.LOGIN, config.CORRECT_PASSWORD)
+    auth_page.login(config.ADMIN_LOGIN, config.ADMIN_PASSWORD)
     auth_page.should_be_on_dashboard()
 
     devices_page.navigate_to_devices()
-    devices_page.add_device("135026892")
+    devices_page.add_device("014 917 927")
     devices_page.should_see_success_add_message()
     devices_page.edit_device_comment("Тест")
     devices_page.should_see_success_save_message()

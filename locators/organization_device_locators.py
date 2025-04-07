@@ -7,3 +7,6 @@ class OrganizationDeviceLocators:
     DEVICE_ID_INPUT = "#HID"  # Локатор для поля ввода идентификатора устройства
     SAVE_DEVICE_BUTTON = "button:has-text('Сохранить')"  # Локатор для кнопки "Сохранить"
     SUCCESS_ADD_MSG = "text=Устройство успешно добавлено в организацию"  # Локатор для уведомления об успешном добавлении
+    BURGER_DELETE_DEVICE = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr[2]/td[1]/input"
+    DELETE_BUTTON = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[1]/div/button[3]"
+    CONFIRM_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[3]/button[1]"

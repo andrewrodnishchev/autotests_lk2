@@ -12,9 +12,10 @@ def test_add_device_to_organization(page, stand):
     org_devices_page = OrganizationDevicesPage(page)
 
     auth_page.navigate_to_login_page()
-    auth_page.login(config.LOGIN, config.CORRECT_PASSWORD)
+    auth_page.login(config.ADMIN_LOGIN, config.ADMIN_PASSWORD)
     auth_page.should_be_on_dashboard()
 
     org_devices_page.navigate_to_organization_devices()
-    org_devices_page.add_device("027478388")
+    org_devices_page.delete_device()
+    org_devices_page.add_device("014 917 927")
     org_devices_page.should_see_success_add_message()

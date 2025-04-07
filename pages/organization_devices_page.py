@@ -17,6 +17,13 @@ class OrganizationDevicesPage:
         print("Переход в раздел 'Устройства'")
         self.page.click(OrganizationDeviceLocators.DEVICES_MENU)
 
+    def delete_device(self):
+        print("Удаляем устройство")
+        self.page.click(OrganizationDeviceLocators.BURGER_DELETE_DEVICE)
+        self.page.click(OrganizationDeviceLocators.DELETE_BUTTON)
+        self.page.click(OrganizationDeviceLocators.CONFIRM_BUTTON)
+        print("Устройство удалено")
+
     def add_device(self, device_id: str):
         print("Нажатие на кнопку 'Добавить устройство'")
         self.page.click(OrganizationDeviceLocators.ADD_DEVICE_BUTTON)

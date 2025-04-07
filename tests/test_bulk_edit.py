@@ -11,7 +11,7 @@ def test_bulk_edit_devices(page, stand):
     bulk_edit_page = BulkEditPage(page)
 
     auth_page.navigate_to_login_page()
-    auth_page.login(config.LOGIN, config.CORRECT_PASSWORD)
+    auth_page.login(config.ADMIN_LOGIN, config.ADMIN_PASSWORD)
     auth_page.should_be_on_dashboard()
 
     bulk_edit_page.navigate_to_organization_devices()

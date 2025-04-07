@@ -17,14 +17,13 @@ class BulkEditPage:
         self.page.click(BulkEditLocators.ORGANIZATION_MENU)
         print("Переход в раздел 'Устройства'")
         self.page.click(BulkEditLocators.DEVICES_MENU)
+        time.sleep(1)
 
     def select_device_checkbox(self):
         print("Выбор чекбокса устройства")
         checkbox = self.page.locator(BulkEditLocators.DEVICE_CHECKBOX)
         checkbox.wait_for(state="visible", timeout=10000)
         checkbox.click()
-
-        time.sleep(3)
 
     def open_edit_menu(self):
         print("Нажатие на кнопку 'Изменить'")
