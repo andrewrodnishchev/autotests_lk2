@@ -1,5 +1,6 @@
 import argparse
 import re
+import time  # Добавлен импорт модуля time
 from playwright.sync_api import Playwright, sync_playwright, expect
 import sys
 from pathlib import Path
@@ -13,6 +14,7 @@ from config import STANDS, get_stand_urls
 
 def run_setup(playwright: Playwright, stand: str) -> None:
     """Основная функция выполнения сетапа"""
+    start_time = time.time()  # Засекаем время начала выполнения
     # Получаем URL для выбранного стенда
     urls = get_stand_urls(stand)
 
@@ -98,7 +100,7 @@ def run_setup(playwright: Playwright, stand: str) -> None:
         page.get_by_role("insertion").click()
         page.get_by_role("button", name="Сохранить").click()
         page.get_by_role("button", name="Сохранить").click()
-        print("  → Устройство 141 233 475 добавлено")
+        print("  → Устройство 014 917 927 добавлено")
 
         # Второе устройство
         page.get_by_title("Добавить устройство").click()
@@ -106,7 +108,7 @@ def run_setup(playwright: Playwright, stand: str) -> None:
         page.get_by_role("insertion").click()
         page.get_by_role("button", name="Сохранить").click()
         page.get_by_role("button", name="Сохранить").click()
-        print("  → Устройство 027 478 388 добавлено")
+        print("  → Устройство 174 570 314 добавлено")
 
         # 6. Создание группы устройств
         page.get_by_title("Добавить группу").click()
@@ -188,7 +190,7 @@ def run_setup(playwright: Playwright, stand: str) -> None:
 
         # Первый вид лицензии
         page.get_by_role("link", name="Создать").click()
-        page.locator("#Title").fill("соединение + чат")
+        page.locator("#Title").fill("Соединение + чат")
         page.locator("#ChannelCount").fill("1")
         for i in range(3, 16):
             if i != 14:  # Пропускаем 14-й чекбокс
@@ -198,9 +200,18 @@ def run_setup(playwright: Playwright, stand: str) -> None:
 
         # Второй вид лицензии
         page.get_by_role("link", name="Создать").click()
-        page.locator("#Title").fill("без соединения")
+        page.locator("#Title").fill("Без соединения")
         page.locator("#ChannelCount").fill("1")
         page.locator(".iCheck-helper").first.click()
+        page.get_by_role("button", name="Сохранить").click()
+
+        # Третий вид лицензии
+        page.get_by_role("link", name="Создать").click()
+        page.locator("#Title").click()
+        page.locator("#Title").fill("Соединение только с разрешенными устройствами")
+        page.locator("#ChannelCount").click()
+        page.locator("#ChannelCount").fill("1")
+        page.locator("div:nth-child(2) > .col-sm-10 > .i-checks > .icheckbox_square-green > .iCheck-helper").click()
         page.get_by_role("button", name="Сохранить").click()
         print("  → Виды лицензий созданы")
 
@@ -210,6 +221,9 @@ def run_setup(playwright: Playwright, stand: str) -> None:
         page.get_by_role("button", name="Сохранить").click()
         page.get_by_role("link", name="Создать").click()
         page.locator("#TypeId").select_option("26")
+        page.get_by_role("button", name="Сохранить").click()
+        page.get_by_role("link", name="Создать").click()
+        page.locator("#TypeId").select_option("28")
         page.get_by_role("button", name="Сохранить").click()
         print("  → Лицензии созданы")
 
@@ -230,6 +244,14 @@ def run_setup(playwright: Playwright, stand: str) -> None:
         page.get_by_role("link", name="Создать").click()
         page.locator("#Email").fill("andrey@mailforspam.com")
         page.locator("#UserName").fill("andrey")
+        page.locator("#Password").fill("1")
+        page.locator("#ConfirmPassword").fill("1")
+        page.get_by_role("button", name="Сохранить").click()
+
+        # Третья учетная запись
+        page.get_by_role("link", name="Создать").click()
+        page.locator("#Email").fill("ast1@mailforspam.com")
+        page.locator("#UserName").fill("ast1")
         page.locator("#Password").fill("1")
         page.locator("#ConfirmPassword").fill("1")
         page.get_by_role("button", name="Сохранить").click()
@@ -255,11 +277,33 @@ def run_setup(playwright: Playwright, stand: str) -> None:
         page.get_by_role("button", name="Сохранить").click()
         print("  → Сотрудники добавлены")
 
+        # 13. Смена почты
+        print("\n✉️ Изменение почты администратора...")
+        page.get_by_role("link", name=" Администрирование ").click()
+        page.get_by_role("link", name=" Учетные записи").click()
+        page.get_by_role("row", name="Активен admin@ast.ru").locator("i").click()
+        page.get_by_role("link", name="Изменить").click()
+        page.locator("#Email").click()
+        page.locator("#Email").fill("test@safib.ru")
+        page.locator("#Password").click()
+        page.locator("#Password").fill("1")
+        page.locator("#ConfirmPassword").click()
+        page.locator("#ConfirmPassword").fill("1")
+        page.get_by_role("button", name="Сохранить").click()
+        print("  → Почта изменена")
+
         print("\n🎉 Сетап успешно завершен!")
 
     finally:
         context.close()
         browser.close()
+
+        # Вычисляем и выводим время выполнения
+        end_time = time.time()
+        total_time = end_time - start_time
+        minutes = int(total_time // 60)
+        seconds = int(total_time % 60)
+        print(f"\n⏱ Общее время выполнения сетапа: {minutes} мин {seconds} сек")
 
 
 def main():

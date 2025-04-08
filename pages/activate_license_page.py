@@ -41,8 +41,8 @@ class LicensePage:
         self.page.locator(LicensePageLocators.LICENSE_DROPDOWN).wait_for(state="visible")
         self.page.select_option(LicensePageLocators.LICENSE_DROPDOWN, index=2)
 
-        self.page.locator(LicensePageLocators.SECOND_DROPDOWN).wait_for(state="visible")
-        self.page.select_option(LicensePageLocators.SECOND_DROPDOWN, index=2)
+        # self.page.locator(LicensePageLocators.SECOND_DROPDOWN).wait_for(state="visible")
+        # self.page.select_option(LicensePageLocators.SECOND_DROPDOWN, index=2)
 
     def execute_changes(self):
         self.page.click(LicensePageLocators.EXECUTE_BUTTON)

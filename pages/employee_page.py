@@ -1,4 +1,6 @@
 # pages/employee_page.py
+import time
+
 from playwright.sync_api import Page, expect
 from locators.employee_locators import EmployeeLocators
 import config
@@ -15,6 +17,8 @@ class EmployeePage:
         self.page.click(EmployeeLocators.ORGANIZATION_MENU)
         print("Переход в раздел 'Сотрудники'")
         self.page.click(EmployeeLocators.EMPLOYEES_MENU)
+
+        time.sleep(1)
 
     def select_all_employees(self):
         print("Выбор всех сотрудников")

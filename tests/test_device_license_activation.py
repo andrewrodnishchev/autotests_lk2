@@ -11,7 +11,7 @@ def test_device_license_activation(page, stand):
     auth_page.login(config.ADMIN_LOGIN, config.ADMIN_PASSWORD)
 
     license_page.navigate_to_devices()
-    license_page.search_device("135 026 892")
+    license_page.search_device("014 917 927")
     license_page.select_device()
     license_page.activate_license()
     license_page.verify_success()

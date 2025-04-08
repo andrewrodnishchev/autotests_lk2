@@ -25,7 +25,7 @@ STANDS: Dict[str, Dict[str, Any]] = {
         "base_url": "http://office.setuplk.ru",
         "login_path": "/Account/Login",
         "dashboard_path": "/ClientOrg",
-        "license_key": ""
+        "license_key": "E9D4A184-8D469444-B35C91A9-53C922BE"
     }
 }
 
@@ -63,10 +63,10 @@ def get_license_key(stand: str) -> str:
 # Остальные настройки
 LOGIN = os.getenv("LOGIN", "rodnischev@safib.ru")
 CORRECT_PASSWORD = os.getenv("CORRECT_PASSWORD", "1")
-# ADMIN_LOGIN = os.getenv("ADMIN_LOGIN", "test@safib.ru")
-ADMIN_LOGIN = os.getenv("ADMIN_LOGIN", "admin@ast.ru")
-# ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "1")
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin")
+ADMIN_LOGIN = os.getenv("ADMIN_LOGIN", "test@safib.ru")
+# ADMIN_LOGIN = os.getenv("ADMIN_LOGIN", "admin@ast.ru")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "1")
+# ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin")
 INCORRECT_PASSWORD = os.getenv("INCORRECT_PASSWORD", "2")
 DEFAULT_TIMEOUT = 10000
 LONG_TIMEOUT = 60000

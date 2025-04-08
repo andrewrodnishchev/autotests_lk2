@@ -46,11 +46,13 @@ class AdminAccountsPage:
         dropdown.wait_for(state="visible", timeout=15000)
         dropdown.select_option(label="тест андрей", timeout=10000)
 
-    def toggle_checkbox(self):
-        self.page.click(AdminAccountsLocators.TOGGLE_CHECKBOX)
+    # def toggle_checkbox(self):
+    #     self.page.click(AdminAccountsLocators.TOGGLE_CHECKBOX)
 
     def execute_action(self):
-        self.page.click(AdminAccountsLocators.EXECUTE_BUTTON)
+        button = self.page.locator(AdminAccountsLocators.EXECUTE_BUTTON)
+        button.wait_for(state="visible", timeout=10000)
+        button.click()
         self.page.wait_for_load_state("networkidle")
 
     def verify_error(self):

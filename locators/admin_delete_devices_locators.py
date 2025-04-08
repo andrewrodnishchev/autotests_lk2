@@ -6,3 +6,11 @@ class AdminDeleteDevicesLocators:
     DELETE_BUTTON = "xpath=//button[contains(., 'Удалить')]"
     CONFIRM_MODAL_BUTTON = "xpath=//div[@role='dialog']//button[contains(., 'Удалить')]"
     SUCCESS_MODAL = "xpath=/html/body/div[4]/div/div/div"
+
+    MY_ORGANIZATION = "xpath=/html/body/div[1]/nav/div/ul/li[2]/a/span[1]"
+    ORGANIZATION = "xpath=/html/body/div[1]/nav/div/ul/li[2]/ul/li[1]/a"
+    ORGANIZATION_TEST_ANDREY = "#тест\ андрей"
+    DEVICES = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/ul/li[2]/a"
+    ADD_DEVICE = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[1]/div/a[1]/i"
+    INPUT_FIELD = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/form/div[1]/div/div[2]/div/input"
+    SAVE = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/form/div[3]/div/button"

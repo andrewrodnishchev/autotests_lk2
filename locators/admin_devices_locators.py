@@ -9,3 +9,9 @@ class AdminDevicesLocators:
     ORG_OPTION = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/div[1]/div/div/div/ul/li[3]/label"
     EXECUTE_BUTTON = "xpath=//button[contains(., 'Выполнить')]"
     SUCCESS_ALERT = "text=Успешно добавлено/обновлено 1 устройство."
+
+    ORGANIZATION = "#тест\ андрей"
+    DEVICES = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/ul/li[2]/a"
+    BURGER_DEVICE = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr[2]/td[10]/div/div/i"
+    BURGER_DELETE_DEVICE = "xpath=/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr[2]/td[10]/div/ul/li[3]/a"
+    CONFIRM_DELETE_DEVICE = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/div/div/form/div[2]/button[1]"

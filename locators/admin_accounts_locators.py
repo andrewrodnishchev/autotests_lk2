@@ -7,5 +7,5 @@ class AdminAccountsLocators:
     ORG_DROPDOWN = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[1]/div/select"
     ORG_OPTION = "option:has-text('тест андрей')"
     TOGGLE_CHECKBOX = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[2]/div[2]/div/div/div/ins"
-    EXECUTE_BUTTON = "xpath=/html/body/div[4]/div[2]/div/div/div[2]/form/div[3]/button[1]"
+    EXECUTE_BUTTON = "text=Выполнить"
     ERROR_MESSAGE = "text=Учетная запись andrey@mailforspam.com уже состоит в организации тест андрей"

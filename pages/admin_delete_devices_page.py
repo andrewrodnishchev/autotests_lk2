@@ -32,6 +32,28 @@ class AdminDeleteDevicesPage:
         self.page.click(AdminDeleteDevicesLocators.CONFIRM_MODAL_BUTTON)
         self.page.wait_for_load_state("networkidle")
 
+    def add_device(self, device_id: str = "014 917 927"):
+        self.page.locator(AdminDeleteDevicesLocators.MY_ORGANIZATION).click()
+        self.page.wait_for_load_state("networkidle")
+
+        self.page.locator(AdminDeleteDevicesLocators.ORGANIZATION).click()
+        self.page.wait_for_load_state("networkidle")
+
+        self.page.locator(AdminDeleteDevicesLocators.ORGANIZATION_TEST_ANDREY).click()
+        self.page.wait_for_load_state("networkidle")
+
+        self.page.locator(AdminDeleteDevicesLocators.DEVICES).click()
+        self.page.wait_for_load_state("networkidle")
+
+        self.page.locator(AdminDeleteDevicesLocators.ADD_DEVICE).click()
+        self.page.wait_for_selector(AdminDeleteDevicesLocators.INPUT_FIELD, state="visible")
+
+        input_field = self.page.locator(AdminDeleteDevicesLocators.INPUT_FIELD)
+        input_field.fill(device_id)
+
+        self.page.locator(AdminDeleteDevicesLocators.SAVE).click()
+        self.page.wait_for_load_state("networkidle")
+
     def verify_deletion_success(self):
         success_modal = self.page.locator(AdminDeleteDevicesLocators.SUCCESS_MODAL)
         success_modal.wait_for(state="visible", timeout=config.DEFAULT_TIMEOUT * 3)

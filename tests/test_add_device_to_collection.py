@@ -15,5 +15,5 @@ def test_add_device_to_collection(page, stand):
     auth_page.should_be_on_dashboard()
 
     device_collection_page.navigate_to_organization_collections()
-    device_collection_page.add_device_to_collection("135026892")
+    device_collection_page.add_device_to_collection("014 917 927")
     device_collection_page.should_see_success_message()

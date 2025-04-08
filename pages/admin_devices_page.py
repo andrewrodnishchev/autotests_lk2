@@ -8,6 +8,13 @@ class AdminDevicesPage:
     def __init__(self, page: Page):
         self.page = page
 
+    def delete_device(self):
+        self.page.click(AdminDevicesLocators.ORGANIZATION)
+        self.page.click(AdminDevicesLocators.DEVICES)
+        self.page.click(AdminDevicesLocators.BURGER_DEVICE)
+        self.page.click(AdminDevicesLocators.BURGER_DELETE_DEVICE)
+        self.page.click(AdminDevicesLocators.CONFIRM_DELETE_DEVICE)
+
     def navigate_to_devices_section(self):
         self.page.click(AdminDevicesLocators.ADMIN_MENU)
         self.page.click(AdminDevicesLocators.DEVICES_MENU)

@@ -15,6 +15,6 @@ def test_add_user_to_organization(page, stand):
     admin_page.select_user()
     admin_page.open_add_to_org_modal()
     admin_page.select_organization()
-    admin_page.toggle_checkbox()
+    # admin_page.toggle_checkbox()
     admin_page.execute_action()
     admin_page.verify_error()

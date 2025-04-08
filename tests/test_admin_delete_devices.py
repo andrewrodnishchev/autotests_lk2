@@ -7,7 +7,7 @@ import config
 def test_admin_delete_devices(page, stand):
     auth_page = AuthPage(page)
     admin_page = AdminDeleteDevicesPage(page)
-    TEST_DEVICE_ID = "076 897 034"
+    TEST_DEVICE_ID = "014 917 927"
 
     try:
         # Авторизация
@@ -20,6 +20,7 @@ def test_admin_delete_devices(page, stand):
         admin_page.select_device()
         admin_page.delete_device()
         admin_page.verify_deletion_success()
+        admin_page.add_device()
 
     except Exception as e:
         pytest.fail(f"Ошибка удаления устройства на стенде {stand}: {str(e)}")

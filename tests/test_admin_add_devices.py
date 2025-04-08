@@ -8,7 +8,7 @@ import config
 def test_admin_add_devices(page, stand):
     auth_page = AuthPage(page)
     admin_page = AdminDevicesPage(page)
-    TEST_DEVICE_ID = "076 897 034"
+    TEST_DEVICE_ID = "014 917 927"
 
     try:
         # Авторизация
@@ -16,6 +16,7 @@ def test_admin_add_devices(page, stand):
         auth_page.login(config.LOGIN, config.CORRECT_PASSWORD)
 
         # Основные шаги
+        admin_page.delete_device()
         admin_page.navigate_to_devices_section()
         admin_page.search_device(TEST_DEVICE_ID)
         admin_page.select_device()
