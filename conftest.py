@@ -29,7 +29,7 @@ def setup_stand(stand):
 def browser():
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=False,  # True - для Git, False - локально
+            headless=True,  # True - для Git, False - локально
             args=["--start-maximized"]
         )
         yield browser
